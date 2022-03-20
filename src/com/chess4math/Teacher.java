@@ -1,5 +1,7 @@
 package com.chess4math;
 
+import java.util.Objects;
+
 public class Teacher {
     private String firstName;
     private String lastName;
@@ -22,4 +24,15 @@ public class Teacher {
     public String getDepartment() {
         return department;
     }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", department='" + department + '\'' +
+                '}';
+    }
+
+
 }
