@@ -29,7 +29,7 @@ public class Test {
 
         List<Teacher> teacherList = new ArrayList<>(teacherSet); //comes without order...
 
-        List<Teacher> teacherList1 = Arrays.asList(teacher1,teacher2,teacher3,teacher4, teacher5);
+        List<Teacher> teacherList1 = Arrays.asList(teacher1,teacher2,teacher3,teacher4, teacher5);////immutable collection
 
         List<Teacher> teacherList2 = List.of(teacher1, teacher2, teacher3, teacher4, teacher5); //immutable collection
 
@@ -116,7 +116,67 @@ public class Test {
 
         System.out.println(studentSet);
 
+        System.out.println("________________________");
 
+        List<Student> studentList = new ArrayList<>(studentSet);
+        System.out.println(studentList);
+
+        int indexToRemove = studentList.indexOf(student2);
+        studentList.remove(indexToRemove);
+
+        System.out.println(studentList);
+
+        System.out.println("------ Iterate------");
+
+        /**
+         * Iterate over with the "enhance loop" or the Iterator
+         */
+
+        for (Student student : studentList) {
+            System.out.println(student);
+        }
+
+        System.out.println("------ Iterator------");
+
+        Iterator<Student> iterator = studentList.iterator();
+
+        while (iterator.hasNext()) {
+            Student student = iterator.next();
+            System.out.println(student);
+            iterator.remove(); //the correct way to remove elements while iterating over a collection
+            System.out.println("removed: " + student);
+        }
+        System.out.println(studentList); //[]
+
+
+        System.out.println("------ Convert a Collection to Array------");
+
+        List<Student> studentList1 = new ArrayList<>(List.of(student1, student2, student3,student4,student5));
+
+        Student[] students = new Student[0];
+        students = studentList1.toArray(students);
+
+        String st = Arrays.toString(students);
+        System.out.println(st);
+
+        System.out.println("------removeIf-----");
+
+        List<String> names = new ArrayList<>();
+        names.add("Ramon");
+        names.add("Isan");
+        names.add("Ledo");
+
+        names.removeIf(name -> name.charAt(0) == 'I');
+
+        for (var name : names) {
+            System.out.println(name);
+        }
+
+        studentList1.removeIf(name -> name.getFullName().startsWith("I"));
+
+        for (var student : studentList1) {
+            System.out.println(student);
+        }
 
 
 
