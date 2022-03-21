@@ -4,6 +4,7 @@ import com.chess4math.Student;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Test {
@@ -24,6 +25,14 @@ public class Test {
         System.out.println(studentList);
 
         Collections.reverse(studentList);
+
+        System.out.println(studentList);
+
+        System.out.println("----Comparator---using Lambda Expression----");
+
+        //Collections.sort(studentList, (st1,st2) -> st1.getFullName().compareTo(st2.getFullName()));
+
+        Collections.sort(studentList, Comparator.comparing(Student::getFullName));
 
         System.out.println(studentList);
 
